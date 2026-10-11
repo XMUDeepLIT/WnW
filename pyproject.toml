@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wnw"
+version = "0.1.0"
+description = "Waxing-and-Waning KV-cache compression for audio language models"
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.11.0",
+    "transformers==5.7.0",
+    "accelerate>=1.1.0",
+    "mistral_common>=1.8.1",
+    "flash-attn>=2.3.3",
+    "triton",
+    "librosa",
+    "soundfile",
+    "numpy",
+    "pycountry",
+    "tqdm",
+    "jiwer",
+    "sacrebleu",
+]
+
+[project.optional-dependencies]
+analysis = ["whisperx"]
+dev = ["pytest", "black", "isort", "ninja"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["common*", "algorithms*", "analysis*", "benchmarks*"]
+
+[tool.setuptools.package-data]
+"algorithms.wnw_cpp.code" = ["planner.cpp"]
+
+[tool.pytest.ini_options]
+markers = [
+    "e2e: end-to-end tests that load a model",
+    "audit: regression / equivalence checks",
+    "slow: tests that take more than a few seconds",
+]

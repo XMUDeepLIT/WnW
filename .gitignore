@@ -1,0 +1,53 @@
+# Byte-compiled / caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Compiled extensions
+*.so
+*.o
+.cache/
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Runs, outputs, logs
+outputs/
+runs/
+wandb/
+*.log
+
+# Data, models, and generated configs
+data/
+models/
+samples/
+configs/
+tmp/
+scratch/
+workdir/
+
+# Media and tensor artifacts
+*.wav
+*.mp3
+*.flac
+*.npy
+*.pt
+*.pth
+
+# Secrets and credentials
+.env
+.env.*
+*.pem
+*.key
+credentials.json
